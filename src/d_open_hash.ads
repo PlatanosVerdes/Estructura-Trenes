@@ -6,16 +6,16 @@ generic
    size: positive; -- número primo
 package d_open_hash is
    -- igual que mapping
-   type conjunto is limited private;
+   type conjuntoH is limited private;
    ya_existe: exception;
    no_existe: exception;
    espacio_desbordado: exception;
 
-   procedure cvacio(s: out conjunto);
-   procedure poner(s: in out conjunto; k: in key; x: in item);
-   procedure consultar(s: in conjunto; k: in key; x: out item);
-   procedure borrar(s: in out conjunto; k: in key);
-   procedure actualiza(s: in out conjunto; k: in key; x: in item);
+   procedure cvacio(s: out conjuntoH);
+   procedure poner(s: in out conjuntoH; k: in key; x: in item);
+   procedure consultar(s: in conjuntoH; k: in key; x: out item);
+   procedure borrar(s: in out conjuntoH; k: in key);
+   procedure actualiza(s: in out conjuntoH; k: in key; x: in item);
 private
    b: constant natural := size;
    type nodo;
@@ -27,7 +27,7 @@ private
    end record;
 
    type dispersion_table is array(natural range 0..b-1) of pnodo;
-   type conjunto is record
+   type conjuntoH is record
       dt: dispersion_table;
    end record;
 

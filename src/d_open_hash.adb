@@ -1,6 +1,6 @@
 package body d_open_hash is
 
-   procedure cvacio(s: out conjunto) is
+   procedure cvacio(s: out conjuntoH) is
       dt: dispersion_table renames s.dt;
    begin
       for i in 0..b-1 loop
@@ -8,7 +8,7 @@ package body d_open_hash is
       end loop;
    end cvacio;
 
-   procedure poner(s: in out conjunto; k: in key; x: in item) is
+   procedure poner(s: in out conjuntoH; k: in key; x: in item) is
       dt: dispersion_table renames s.dt;
       i: natural;
       p: pnodo;
@@ -27,7 +27,7 @@ package body d_open_hash is
          when Storage_Error => raise espacio_desbordado;
    end poner;
 
-   procedure consultar(s: in conjunto; k: in key; x: out item) is
+   procedure consultar(s: in conjuntoH; k: in key; x: out item) is
       dt: dispersion_table renames s.dt;
       i: natural;
       p: pnodo;
@@ -40,7 +40,7 @@ package body d_open_hash is
       x := p.x;
    end consultar;
 
-   procedure actualiza(s: in out conjunto; k: in key; x: in item) is
+   procedure actualiza(s: in out conjuntoH; k: in key; x: in item) is
       dt: dispersion_table renames s.dt;
       i: natural;
       p: pnodo;
@@ -53,7 +53,7 @@ package body d_open_hash is
       p.x := x;
    end actualiza;
 
-   procedure borrar(s: in out conjunto; k: in key) is
+   procedure borrar(s: in out conjuntoH; k: in key) is
       dt: dispersion_table renames s.dt;
       i: Natural;
       p, pp: pnodo;

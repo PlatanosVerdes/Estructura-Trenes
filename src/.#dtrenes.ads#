@@ -1,0 +1,108 @@
+with Ada.Strings.Unbounded; use ada.Strings.Unbounded;
+with dcola;
+with dpila;
+with d_open_hash;
+with davl;
+
+generic
+   
+package dtrenes is
+   
+   --elemento principal del paquete
+   type cTrenes is limited private;
+   
+   type tcodigo is new Unbounded_String;
+   
+   type pesoAcumulado is new integer;
+   
+   --excepciones
+   aparcamiento_locomotoras_completo: exception;
+   aparcamiento_vagones_completo: exception;
+   locomotoras_agotadas: exception;
+   vagones_agotadas: exception;
+   inventario_trenes_completo: exception;
+   tren_no_existe: exception;
+   
+   --procedures
+   procedure vacio(cia: out cTrenes);
+   procedure aparcaLocomotora(cia: in out cTrenes; k: in tcodigo);
+   procedure aparcaVagon(cia: in out cTrenes; k: in tcodigo;pmax: in integer);
+   procedure listarTrenes(cia: in cTrenes);                      
+   procedure creaTren(cia: in out cTrenes; t: out tcodigo; num_vagones:in Integer);
+   procedure consultaTren(cia: in cTrenes; t: in tcodigo); 
+   procedure desmantelarTren(cia: in out cTrenes); 
+   
+
+   
+private
+      
+   --type numeroTrenes is new positive;
+   function mayor (k1, k2: in pesoAcumulado) return boolean;
+   function hashf (k : in tcodigo ; b : in positive ) return natural;
+   function menor (k1, k2: in pesoAcumulado) return boolean; 
+   function igual (k1, k2: in tcodigo) return boolean;
+ --Menor
+   
+   type vagon;
+   
+   --type pvagon is access vagon;
+
+   type vagon is record
+      Vcodigo:  tcodigo;
+      pesoMax:  Positive;
+      --pV: pvagon;
+   end record;
+   
+   type locomotora is record
+      lcodigo: tcodigo;
+   end record;
+   
+   --Lista enlazada de vagones
+   type pnode is access node;
+   
+   type node is record
+      vagon: vagon;
+      psig: pnode;
+   end record;
+      
+   --parking de locomotoras
+   package colaP is new dcola(locomotora);
+   use colaP;
+   
+   --parking de vagones
+   package pilaP is new dpila(vagon);
+   use pilaP;
+
+   type tren is record
+      locoT:         locomotora;
+      vagonT:        vagon;
+   end record;
+
+   type p_tren is access tren;
+   
+   --hash para buscar por código
+   package dhashT is new d_open_hash(key           => tcodigo,
+                                     item          => p_tren,
+                                     "="           => igual,
+                                     hash          => hashF,
+                                     size          => 97);
+   use dhashT;
+   
+  
+   --AVL para buscar por peso
+   package davlT is new davl(  key           => pesoAcumulado,
+                               item          => p_tren,
+                               "<"           =>  menor,
+                               ">"           =>  mayor);
+   use davlT;
+   
+   
+   type cTrenes is record
+      pkLoco: cola;
+      pkVagon: pila;
+      hash: conjuntoH;
+      avl: conjunto;
+   end record;
+
+
+end dtrenes;

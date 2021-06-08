@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file>C:\Users\Juanmi\Documents\trenes\default.gpr</vfs_file>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\trenes\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\trenes\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\trenes\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\trenes\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 45" >
+      <vfs_project>C:\Users\Juanmi\Documents\trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\trenes\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 45" >
+      <vfs_project>C:\Users\Juanmi\Documents\trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\trenes\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\trenes\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\trenes\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\trenes\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\trenes\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 45" >
+      <vfs_project>C:\Users\Juanmi\Documents\trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\trenes\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 55" line=" 80" >
+      <vfs_project>C:\Users\Juanmi\Documents\trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\trenes\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 55" line=" 43" >
+      <vfs_project>C:\Users\Juanmi\Documents\trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\trenes\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 55" line=" 80" >
+      <vfs_project>C:\Users\Juanmi\Documents\trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\trenes\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\trenes\src\dtrenes.adb</vfs_file>
+    </file_marker>
+  </Project>
+  <Project >
+    <vfs_file >C:\Users\Juanmi\Documents\default.gpr</vfs_file>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 19" line=" 12">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 25" line=" 24">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 63" line=" 79">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 2">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 7" line=" 51">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 2">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 36" line=" 29">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 25" line=" 23">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 2">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 41">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 3" line=" 7">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 63" line=" 24">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 20">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 3" line=" 7">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 12" line=" 6">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 3" line=" 12">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 12" line=" 36">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 2">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 1">
+      <vfs_project >C:\Users\Juanmi\Documents\default.gpr</vfs_project>
+      <vfs_file >C:\Users\Juanmi\Documents\src\dtrenes.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

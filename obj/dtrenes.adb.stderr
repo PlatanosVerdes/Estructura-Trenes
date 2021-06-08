@@ -1,0 +1,10 @@
+dtrenes.adb:11:16: prefix for "range" attribute may not be private type
+dtrenes.adb:12:28: array type required in indexed component
+dtrenes.adb:190:36: expected type "pesoAcumulado" defined at dtrenes.ads:16
+dtrenes.adb:190:36: found private type "tcodigo" defined at dtrenes.ads:14
+dtrenes.ads:79:55: "hash" is not visible
+dtrenes.ads:79:55: non-visible declaration at d_open_hash.ads:4
+dtrenes.ads:79:55: instantiation abandoned
+dtrenes.ads:81:08: "dhashT" is undefined
+dtrenes.ads:95:13: "conjuntoH" is not visible (more references follow)
+dtrenes.ads:95:13: non-visible declaration at d_open_hash.ads:9
