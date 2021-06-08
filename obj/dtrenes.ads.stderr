@@ -1,2 +1,1 @@
-dtrenes.ads:61:25: "node" is undefined
-dtrenes.ads:64:14: component "vagon" cannot be used before end of record declaration
+cannot generate code for file dtrenes.ads (package spec)

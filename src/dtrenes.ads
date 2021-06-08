@@ -1,4 +1,5 @@
-with Ada.Strings.Unbounded; use ada.Strings.Unbounded;
+--with Ada.Strings.Unbounded; use ada.Strings.Unbounded;
+with Ada.Text_IO; use Ada.Text_IO;
 with dcola;
 with dpila;
 with d_open_hash;
@@ -11,10 +12,8 @@ package dtrenes is
    --elemento principal del paquete
    type cTrenes is limited private;
    
-   type tcodigo is new Unbounded_String;
-   
-   type pesoAcumulado is new integer;
-   
+   subtype tcodigo is String(1..8);
+      
    --excepciones
    aparcamiento_locomotoras_completo: exception;
    aparcamiento_vagones_completo: exception;
@@ -37,9 +36,9 @@ package dtrenes is
 private
       
    --type numeroTrenes is new positive;
-   function mayor (k1, k2: in pesoAcumulado) return boolean;
-   function hashf (k : in tcodigo ; b : in positive ) return natural;
-   function menor (k1, k2: in pesoAcumulado) return boolean; 
+   function mayor (k1, k2: in Integer) return boolean;
+   function hashf (k: in tcodigo ; b: in Integer) return natural;
+   function menor (k1, k2: in Integer) return boolean; 
    function igual (k1, k2: in tcodigo) return boolean;
  --Menor
    
@@ -49,7 +48,7 @@ private
 
    type vagon is record
       Vcodigo:  tcodigo;
-      pesoMax:  Positive;
+      pesoMax:  Integer;
       --pV: pvagon;
    end record;
    
@@ -58,13 +57,12 @@ private
    end record;
    
    --Lista enlazada de vagones
+   type node; 
+   type pnode is access node;
    type node is record
-      vagon: vagon;
+      nvagon: vagon;
       psig: pnode;
    end record;
-   
-   type pnode is access node;
-   
 
       
    --parking de locomotoras
@@ -93,7 +91,7 @@ private
    
   
    --AVL para buscar por peso
-   package davlT is new davl(  key           => pesoAcumulado,
+   package davlT is new davl(  key           => Integer,
                                item          => p_tren,
                                "<"           =>  menor,
                                ">"           =>  mayor);

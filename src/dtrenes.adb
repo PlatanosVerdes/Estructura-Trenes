@@ -1,10 +1,8 @@
-with Ada.Text_IO; use Ada.Text_IO;
-
 --with ada.Text_IO; use Ada.Text_IO;
 package body dtrenes is
    
    --hash function
-   function hashF (k : in tcodigo; b : in Positive) return Natural is
+   function hashF (k : in tcodigo; b : in Integer) return Natural is
       s, p: natural;
    begin
       s:= 0;
@@ -23,8 +21,6 @@ package body dtrenes is
       tree: conjunto renames cia.avl;
      
    begin
-      
-     
       --vaciamos parkings
       cvacia(locomotoras);
       pvacia(vagones);
@@ -32,7 +28,6 @@ package body dtrenes is
       --vaciamos estructuras de busqueda
       cvacio(hashing);
       cvacio(tree);
-      
    end vacio;
    
 
@@ -45,13 +40,10 @@ package body dtrenes is
       locomotoras: cola renames cia.pkLoco;
       locoAux: locomotora;
    begin
-
       locoAux.lcodigo := k;
       poner(locomotoras, locoAux);
    exception
-         
-      when Constraint_Error => raise aparcamiento_locomotoras_completo; --Aparcamiento completo
-         
+      when dcola.espacio_desbordado => raise aparcamiento_locomotoras_completo;
    end aparcaLocomotora;
    
    --aparcamos nuevo vagon en el parking 
@@ -64,7 +56,6 @@ package body dtrenes is
       --creamos nuevo vagon
       vagonAux.Vcodigo := k;
       vagonAux.pesoMax := pmax;
-      vagonAux.pV := new vagon;
       
       --metemos nuevo vagon en el parking
       empila(vagones,vagonAux);
@@ -72,7 +63,7 @@ package body dtrenes is
    exception
       
          --manejamos error parking completo
-      when Constraint_Error => raise aparcamiento_vagones_completo; 
+      when pilaP.espacio_desbordado => raise aparcamiento_vagones_completo; 
          
    end aparcaVagon;
    
@@ -80,10 +71,11 @@ package body dtrenes is
    procedure listarTrenes(cia: in cTrenes) is
       avl: conjunto renames cia.avl;
       it: iterator;
-      kAux: pesoAcumulado;
+      kAux: Integer;
       xAux: p_tren;
       code: tcodigo;
-      vagonAux: pvagon;
+      --vagonAux: pvagon;
+      pnodo: pnode;
    begin
       
       first(avl,it);
@@ -95,38 +87,50 @@ package body dtrenes is
          
         
          --codigo 
-         code := xAux.all.locoT.lcodigo;
-         
+         code := xAux.locoT.lcodigo;
+
          --codigo locomotora
-         Put_Line(To_String(code));
+         Put_Line(code);
          
-         Replace_Element(code,1,'T');
+         code(1):= 'T';
          
          --codigo tren
-         Put_Line(To_String(code));
+         Put_Line(code);
          --pesoacumulado tren
          Put_Line(kAux'Img);
-         
-         --imprimimos primer vagon
-         Put_Line(To_String(xAux.all.vagonT.Vcodigo));
-         Put_Line(xAux.all.vagonT.pesoMax'Img);
-         
-         --puntero apuntando al segudno vagon
-         vagonAux := new vagon;
-         vagonAux := xAux.all.vagonT.pV;
-         
-         --mientras haya vagones imprimimos
-         while(vagonAux /= null) loop
-            
-            Put_Line(To_String(vagonAux.all.Vcodigo));
-            Put_Line(vagonAux.all.pesoMax'Img);
-     
-            --avanzamos puntero.
-            vagonAux := vagonAux.pV;
-         
+
+         --Imprimir vagones
+         --Recorrido vagones
+         pnodo := new node;
+         pnodo := xAux.pnodo;
+         while pnodo /= null loop
+            Put_Line("Vagon:" & pnodo.nvagon.Vcodigo & "con peso:" & pnodo.nvagon.pesoMax'Img);
+            pnodo:= pnodo.psig;
          end loop;
          
+         --imprimimos primer vagon
+         --Put_Line(xAux.pnodo.vagonT.Vcodigo);
+         --Put_Line(xAux.pnodo.vagonT.pesoMax'Img);
+         
+         --puntero apuntando al segudno vagon
+         --vagonAux := new vagon;
+         --vagonAux := xAux.all.vagonT.pV;
+         
+         --mientras haya vagones imprimimos
+         --while(vagonAux /= null) loop
+         --   
+         --   Put_Line(To_String(vagonAux.all.Vcodigo));
+         --   Put_Line(vagonAux.all.pesoMax'Img);
+     
+            --avanzamos puntero.
+         --   vagonAux := vagonAux.pV;
+         
+         --end loop;
+         
       end loop;
+      
+      exception
+      when davlT.no_existe => raise tren_no_existe;
    end listarTrenes;
    
    --Crear un nuevo tren a partir de una locomotora libre y el numero
@@ -148,137 +152,178 @@ package body dtrenes is
       vagones: pila renames cia.pkVagon; 
       
       ptren: p_tren;
-      codigoAux: tcodigo;
       
       loco: locomotora;
-      pnodo: pnode;
       pnodoAux: pnode;
       
       nvagones: Integer;
+      pesoAcu: Integer;
    begin
      
       --Cogemos una locomotora libre
-      if not esta_vacia(locomotoras) then
-         loco := coger_primero(locomotoras);
-      end if;
-      --FALTA ERROR: locomotoras_agotadas
+      loco := coger_primero(locomotoras);
       
       --Montamos tren
       ptren := new tren;
       ptren.all.locoT := loco;
       --Cambiamos el codigo
-      codigoAux := loco.lcodigo;
-      Replace_Element(codigoAux,1,'T');
+      t := loco.lcodigo;
+      t(1) := 'T';
       
       --Cogemos vagones
-      pnodo := new node;
       pnodoAux := new node;
-      
       nvagones := 0;
+      pesoAcu := 0;
       while num_vagones > nvagones loop
          
+         --Guardamos el elemento anterior
          pnodoAux := ptren.all.pnodo;
-         pnodo.all.vagon := cima(vagones);
-         pnodo.all.psig := pnodoAux;
+         --Ponemos el nuevo
+         ptren.all.pnodo.nvagon := cima(vagones);
+         --Lo enlazamos
+         ptren.all.pnodo.psig := pnodoAux;
+         
+         --Aumentamos peso
+         pesoAcu := pesoAcu + ptren.pnodo.nvagon.pesoMax;
          desempila(vagones);
          
          nvagones := nvagones +1;
       end loop;
-      --FALTA ERROR: vagones_agotados
       
+      --Registramos el tren
+      poner(cia.hash,t,ptren); --En el hash
+      davlT.poner(cia.avl,pesoAcu,ptren); --En el AVL
+      
+      --Excepciones
    exception
-      when Constraint_Error => raise locomotoras_agotadas; --Locomotoras agotadas
-      
+      when colaP.mal_uso => raise locomotoras_agotadas;
+      when pilaP.mal_uso => raise vagones_agotados; 
    end creaTren;
    
+   --Debe mostrar la informacion del tren con el codigo identicativo 't'.
+   
+   --La informacion del tren que debe mostrarse es: codigo del tren,
+   --codigo de su locomotora y, por cada uno de los vagones que lo
+   --componen, el codigo y el peso maximo de cada vagon.
+   
+   --Si no existe en el inventario de trenes montados un tren con el
+   --codigo identificativo t, debe lanzar la excepcion tren no existe.
    procedure consultaTren(cia: in cTrenes; t: in tcodigo) is
+      ptren: p_tren;
+      pnodo: pnode;
    begin
-      null;
+    
+      ptren := new tren;
+      
+      --Consultar hash
+      consultar(cia.hash,t,ptren);
+      
+      Put_Line("Codigo del tren:" & t);
+      Put_Line("Codigo locomotora:" & ptren.locoT.lcodigo);
+
+      --Recorrido vagones
+      pnodo := new node;
+      pnodo := ptren.pnodo;
+      while pnodo /= null loop
+         Put_Line("Vagon:" & pnodo.nvagon.Vcodigo & "con peso:" & pnodo.nvagon.pesoMax'Img);
+         pnodo:= pnodo.psig;
+      end loop;
+
+   exception
+      when dhashT.no_existe => raise tren_no_existe;
+      
    end consultaTren;
    
    procedure desmantelarTren(cia: in out cTrenes) is 
       hash: conjuntoH renames cia.hash;
+      vagones: pila renames cia.pkVagon;
       
       avl:  conjunto  renames cia.avl;
       itA:   iterator;
-      kAux: pesoAcumulado;
+      kAux: Integer;
       xAux: p_tren;
-      vagonAux: pvagon;
-      vagonAux2: pvagon;
+      pnodo:  pnode;
+      --vagonAux: pvagon;
+      --vagonAux2: pvagon;
       
    begin
       --cogemos el tren de peso menor
       first(avl,itA);
       
-      if (is_valid(itA)) then 
+      if (is_valid(itA)) then
          get(avl,itA,kAux,xAux);
-      
+         
+         --Desmantelamos vagones
+         --Recorrido vagones
+         pnodo := new node;
+         pnodo := xAux.pnodo;
+         while pnodo /= null loop
+            Put_Line("Vagon:" & pnodo.nvagon.Vcodigo & "con peso:" & pnodo.nvagon.pesoMax'Img);
+            --Aparcar
+            empila(vagones,pnodo.nvagon);
+            pnodo:= pnodo.psig;
+         end loop;
+         
          --puntero apuntando al segudno vagon
-         vagonAux := new vagon;
-         vagonAux2 := new vagon;
+         --vagonAux := new vagon;
+         --vagonAux2 := new vagon;
       
-         vagonAux.all := xAux.all.vagonT;
+         --vagonAux.all := xAux.all.vagonT;
          
          --mientras haya vagones imprimimos
-         while(vagonAux /= null) loop
+         --while(vagonAux /= null) loop
             
-            if(vagonAux.pV /= null) then
-               vagonAux2 := vagonAux.pV;
-            end if;
+         --   if(vagonAux.pV /= null) then
+         --      vagonAux2 := vagonAux.pV;
+         --   end if;
          
             --imprimimos para debuggear luego
-            Put_Line(To_String(vagonAux.all.Vcodigo));
-            Put_Line(vagonAux.all.pesoMax'Img);
+         --   Put_Line(To_String(vagonAux.all.Vcodigo));
+         --   Put_Line(vagonAux.all.pesoMax'Img);
          
             --quitamos este vagón y lo aparcamos
-            aparcaVagon(cia,vagonAux.all.Vcodigo,vagonAux.all.pesoMax);
-            vagonAux.pV := null;
+         --   aparcaVagon(cia,vagonAux.all.Vcodigo,vagonAux.all.pesoMax);
+         --   vagonAux.pV := null;
          
             --avanzamos puntero.
-            vagonAux := vagonAux2;
+         --   vagonAux := vagonAux2;
          
-         end loop;
+         --end loop;
          
          --aparcamos locomotor
          aparcaLocomotora(cia,xAux.all.locoT.lcodigo);
          
          --modificamos codigoLoco para borrarlo del hash
-         Replace_Element(xAux.all.locoT.lcodigo,1,'T');
+         xAux.locoT.lcodigo(1) := 'T';
          borrar(hash,xAux.all.locoT.lcodigo);
          
          --borrarmos del avl
          borrar(avl,kAux);
-      else  
-         Put_Line("No hay trenes");
+
       end if;
+      
+      exception
+      when davlT.no_existe => raise tren_no_existe;
      
    end desmantelarTren;
    
    
    --Mayor
-   function mayor(k1, k2 : in pesoAcumulado) return boolean is
-  
+   function mayor(k1, k2 : in Integer) return boolean is
    begin
-      
       return k1>k2;
-
    end mayor;
+   
   --Menor
-  function menor(k1,k2 : in pesoAcumulado) return boolean is
-
+  function menor(k1,k2 : in Integer) return boolean is
    begin
-
       return k1<k2;
-
    end menor;
    
    --Igual
    function igual(k1,k2 : in tcodigo) return boolean is
-
    begin
-
-      return k1=k2; --esto es legal? lmao
-
+      return k1=k2;
    end igual;
 
 
