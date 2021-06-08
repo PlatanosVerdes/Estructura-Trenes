@@ -129,9 +129,66 @@ package body dtrenes is
       end loop;
    end listarTrenes;
    
+   --Crear un nuevo tren a partir de una locomotora libre y el numero
+   --indicado de vagones (de entre los vagones libres aparcados).
+   
+   --El codigo del tren se corresponde con el codigo de la locomotora
+   --que lo forma pero, en lugar de empezar por L, debe empezar por T.
+   
+   --Si no quedan locomotoras libres, debe lanzar la excepcion loco-
+   --motoras agotadas.
+   
+   --Si no quedan suficientes vagones libres, debe lanzar la excepcion
+   --vagones agotadas.
+  
+   --Si no se dispone de espacio suficientes para almacenar el tren montado,
+   --debe lanzar la excepcion inventario trenes completo
    procedure creaTren(cia: in out cTrenes; t: out tcodigo; num_vagones:in Integer) is
+      locomotoras: cola renames cia.pkLoco; 
+      vagones: pila renames cia.pkVagon; 
+      
+      ptren: p_tren;
+      codigoAux: tcodigo;
+      
+      loco: locomotora;
+      pnodo: pnode;
+      pnodoAux: pnode;
+      
+      nvagones: Integer;
    begin
-      null;
+     
+      --Cogemos una locomotora libre
+      if not esta_vacia(locomotoras) then
+         loco := coger_primero(locomotoras);
+      end if;
+      --FALTA ERROR: locomotoras_agotadas
+      
+      --Montamos tren
+      ptren := new tren;
+      ptren.all.locoT := loco;
+      --Cambiamos el codigo
+      codigoAux := loco.lcodigo;
+      Replace_Element(codigoAux,1,'T');
+      
+      --Cogemos vagones
+      pnodo := new node;
+      pnodoAux := new node;
+      
+      nvagones := 0;
+      while num_vagones > nvagones loop
+         
+         pnodoAux := ptren.all.pnodo;
+         pnodo.all.vagon := cima(vagones);
+         pnodo.all.psig := pnodoAux;
+         desempila(vagones);
+         
+         nvagones := nvagones +1;
+      end loop;
+      --FALTA ERROR: vagones_agotados
+      
+   exception
+      when Constraint_Error => raise locomotoras_agotadas; --Locomotoras agotadas
+      
    end creaTren;
    
    procedure consultaTren(cia: in cTrenes; t: in tcodigo) is

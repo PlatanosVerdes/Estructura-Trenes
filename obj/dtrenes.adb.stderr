@@ -1,10 +1,19 @@
 dtrenes.adb:11:16: prefix for "range" attribute may not be private type
 dtrenes.adb:12:28: array type required in indexed component
-dtrenes.adb:190:36: expected type "pesoAcumulado" defined at dtrenes.ads:16
-dtrenes.adb:190:36: found private type "tcodigo" defined at dtrenes.ads:14
-dtrenes.ads:79:55: "hash" is not visible
-dtrenes.ads:79:55: non-visible declaration at d_open_hash.ads:4
-dtrenes.ads:79:55: instantiation abandoned
-dtrenes.ads:81:08: "dhashT" is undefined
-dtrenes.ads:95:13: "conjuntoH" is not visible (more references follow)
-dtrenes.ads:95:13: non-visible declaration at d_open_hash.ads:9
+dtrenes.adb:67:15: no selector "pV" for type "vagon" defined at dtrenes.ads:50
+dtrenes.adb:86:17: "pvagon" is undefined (more references follow)
+dtrenes.adb:111:37: no selector "vagonT" for type "tren" defined at dtrenes.ads:78
+dtrenes.adb:112:27: no selector "vagonT" for type "tren" defined at dtrenes.ads:78
+dtrenes.adb:116:30: no selector "vagonT" for type "tren" defined at dtrenes.ads:78
+dtrenes.adb:125:25: invalid prefix in selected component "vagonAux"
+dtrenes.adb:190:12: "mal_uso" is not visible
+dtrenes.adb:190:12: multiple use clauses cause hiding
+dtrenes.adb:190:12: hidden declaration at dpila.ads:6, instance at dtrenes.ads:75
+dtrenes.adb:190:12: hidden declaration at dcola.ads:6, instance at dtrenes.ads:71
+dtrenes.adb:220:19: left hand side of assignment must be a variable
+dtrenes.adb:220:34: no selector "vagonT" for type "tren" defined at dtrenes.ads:78
+dtrenes.adb:225:16: invalid prefix in selected component "vagonAux"
+dtrenes.adb:226:29: invalid prefix in selected component "vagonAux"
+dtrenes.adb:235:13: invalid prefix in selected component "vagonAux"
+dtrenes.ads:62:14: component "vagon" cannot be used before end of record declaration
+dtrenes.ads:63:13: "pnode" is undefined

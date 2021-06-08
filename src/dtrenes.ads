@@ -19,7 +19,7 @@ package dtrenes is
    aparcamiento_locomotoras_completo: exception;
    aparcamiento_vagones_completo: exception;
    locomotoras_agotadas: exception;
-   vagones_agotadas: exception;
+   vagones_agotados: exception;
    inventario_trenes_completo: exception;
    tren_no_existe: exception;
    
@@ -43,20 +43,29 @@ private
    function igual (k1, k2: in tcodigo) return boolean;
  --Menor
    
-   
    type vagon;
    
-   type pvagon is access vagon;
+   --type pvagon is access vagon;
 
    type vagon is record
       Vcodigo:  tcodigo;
       pesoMax:  Positive;
-      pV: pvagon;
+      --pV: pvagon;
    end record;
    
    type locomotora is record
       lcodigo: tcodigo;
    end record;
+   
+   --Lista enlazada de vagones
+   type node is record
+      vagon: vagon;
+      psig: pnode;
+   end record;
+   
+   type pnode is access node;
+   
+
       
    --parking de locomotoras
    package colaP is new dcola(locomotora);
@@ -67,8 +76,9 @@ private
    use pilaP;
 
    type tren is record
-      locoT:         locomotora;
-      vagonT:        vagon;
+      locoT: locomotora;
+      --vagonT:        vagon;
+      pnodo: pnode;
    end record;
 
    type p_tren is access tren;
