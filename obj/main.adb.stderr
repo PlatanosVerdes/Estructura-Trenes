@@ -1,2 +1,0 @@
-dtrenes.adb:220:16: prefix for "range" attribute may not be private type
-dtrenes.adb:221:28: array type required in indexed component

@@ -1,4 +1,3 @@
---with ada.Text_IO; use Ada.Text_IO;
 package body dtrenes is
    
    --hash function
@@ -13,7 +12,7 @@ package body dtrenes is
       return s;
    end hashF;
 
-
+   --preparamos estructuras
    procedure vacio(cia: out cTrenes) is
       locomotoras: cola renames cia.pkLoco;
       vagones: pila renames cia.pkVagon;
@@ -43,7 +42,7 @@ package body dtrenes is
       locoAux.lcodigo := k;
       poner(locomotoras, locoAux);
    exception
-      when dcola.espacio_desbordado => raise aparcamiento_locomotoras_completo;
+      when colaP.espacio_desbordado => raise aparcamiento_locomotoras_completo;
    end aparcaLocomotora;
    
    --aparcamos nuevo vagon en el parking 
