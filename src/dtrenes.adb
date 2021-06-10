@@ -41,6 +41,8 @@ package body dtrenes is
    begin
       locoAux.lcodigo := k;
       poner(locomotoras, locoAux);
+      Put_Line( "Locomotora aparcada: " & locoAux.lcodigo);
+
    exception
       when colaP.espacio_desbordado => raise aparcamiento_locomotoras_completo;
    end aparcaLocomotora;
@@ -55,6 +57,7 @@ package body dtrenes is
       --creamos nuevo vagon
       vagonAux.Vcodigo := k;
       vagonAux.pesoMax := pmax;
+      Put_Line( "Vagonparcado: " & vagonAux.Vcodigo & " con peso:" & vagonAux.pesoMax'Img);
       
       --metemos nuevo vagon en el parking
       empila(vagones,vagonAux);
@@ -73,7 +76,6 @@ package body dtrenes is
       kAux: Integer;
       xAux: p_tren;
       code: tcodigo;
-      --vagonAux: pvagon;
       pnodo: pnode;
    begin
       
@@ -83,20 +85,17 @@ package body dtrenes is
       
       while is_valid(it) loop
          get(avl,it,kAux,xAux);
-         
         
          --codigo 
          code := xAux.locoT.lcodigo;
 
          --codigo locomotora
-         Put_Line(code);
+         Put_Line("Codigo locomotora:" & code);
          
          code(1):= 'T';
          
-         --codigo tren
-         Put_Line(code);
-         --pesoacumulado tren
-         Put_Line(kAux'Img);
+         --codigo tren y peso
+         Put_Line("Codigo Tren:" & code & "con peso: " & kAux'Img);
 
          --Imprimir vagones
          --Recorrido vagones
@@ -106,26 +105,8 @@ package body dtrenes is
             Put_Line("Vagon:" & pnodo.nvagon.Vcodigo & "con peso:" & pnodo.nvagon.pesoMax'Img);
             pnodo:= pnodo.psig;
          end loop;
-         
-         --imprimimos primer vagon
-         --Put_Line(xAux.pnodo.vagonT.Vcodigo);
-         --Put_Line(xAux.pnodo.vagonT.pesoMax'Img);
-         
-         --puntero apuntando al segudno vagon
-         --vagonAux := new vagon;
-         --vagonAux := xAux.all.vagonT.pV;
-         
-         --mientras haya vagones imprimimos
-         --while(vagonAux /= null) loop
-         --   
-         --   Put_Line(To_String(vagonAux.all.Vcodigo));
-         --   Put_Line(vagonAux.all.pesoMax'Img);
-     
-            --avanzamos puntero.
-         --   vagonAux := vagonAux.pV;
-         
-         --end loop;
-         
+
+         next(avl,it);
       end loop;
       
       exception
@@ -152,49 +133,105 @@ package body dtrenes is
       
       ptren: p_tren;
       
-      loco: locomotora;
+      pnodoNew: pnode;
       pnodoAux: pnode;
+      
+      pnodo: pnode;
+      
+      loco: locomotora;
       
       nvagones: Integer;
       pesoAcu: Integer;
       
+      i:Integer;
+            
    begin
      
       --Cogemos una locomotora libre
       loco := coger_primero(locomotoras);
+      borrar_primero(locomotoras);
       
       --Montamos tren
       ptren := new tren;
+      ptren.pnodo := new node;
       
-      ptren.all.locoT := loco;
+      ptren.locoT := loco;
       --Cambiamos el codigo
       t := loco.lcodigo;
       t(1) := 'T';
       
       --Cogemos vagones
+      pnodoNew := new node;
       pnodoAux := new node;
       nvagones := 0;
       pesoAcu := 0;
+      
       while num_vagones > nvagones loop
-         ptren.all.pnodo := new node;
-         --Guardamos el elemento anterior
-         pnodoAux := ptren.all.pnodo;
-         --Ponemos el nuevo
-         ptren.all.pnodo.nvagon := cima(vagones);
-         --Lo enlazamos
-         ptren.all.pnodo.psig := pnodoAux;
+  
+         --Primer vagon
+         if nvagones = 0 then          
+            --Ponemos el nuevo
+            pnodoNew.nvagon := cima(vagones);
+            pnodoNew.psig := null;
+            --Put_Line("Pillamos vagon: Vagon:" & pnodoNew.nvagon.Vcodigo & " con peso:" & pnodoNew.nvagon.pesoMax'Img);
+         
+            --Enlazamos
+            ptren.pnodo.nvagon := pnodoNew.nvagon;
+            ptren.pnodo.psig := pnodoNew.psig;
+            --Put_Line("sig: Vagon:" & pnodoNew.nvagon.Vcodigo & " con peso:" & pnodoNew.nvagon.pesoMax'Img);
+            --Put_Line("ptren: Vagon:" & ptren.pnodo.nvagon.Vcodigo & " con peso:" & ptren.pnodo.nvagon.pesoMax'Img);
+            
+         else --Segundo vagon
+            --Guardamos el vagon del tren
+            pnodoAux := new node;
+            pnodoAux.nvagon := ptren.pnodo.nvagon;
+            pnodoAux.psig := ptren.pnodo.psig;
+         
+            --Ponemos el nuevo
+            pnodoNew := new node;
+            pnodoNew.nvagon := cima(vagones);
+            pnodoNew.psig := pnodoAux;
+
+            --Put_Line("Pillamos vagon: Vagon:" & pnodoNew.nvagon.Vcodigo & " con peso:" & pnodoNew.nvagon.pesoMax'Img);
+         
+            --Enlazamos
+            ptren.pnodo.nvagon := pnodoNew.nvagon;
+            ptren.pnodo.psig := pnodoNew.psig;
+            --Put_Line("pnew sig: Vagon:" & pnodoNew.psig.nvagon.Vcodigo & " con peso:" & pnodoNew.psig.nvagon.pesoMax'Img);
+            --Put_Line("ptren: Vagon:" & ptren.pnodo.nvagon.Vcodigo & " con peso:" & pnodoNew.nvagon.pesoMax'Img);
+            
+         end if;
          
          --Aumentamos peso
          pesoAcu := pesoAcu + ptren.pnodo.nvagon.pesoMax;
          desempila(vagones);
          
-         nvagones := nvagones +1;
+         nvagones := nvagones + 1;
       end loop;
       
-      --Registramos el tren
-      poner(cia.hash,t,ptren); --En el hash
-      davlT.poner(cia.avl,pesoAcu,ptren); --En el AVL
+      --Imprimimos
+      Put_Line("");
+      Put_Line("Se ha creado un tren con codigo: " & t & " con Peso MAX: " & pesoAcu'Img);
+      Put_Line("Locomotora: " & ptren.locoT.lcodigo);
+      --Put_Line("Utimo vago: "& ptren.pnodo.nvagon.Vcodigo & " con peso:" & ptren.pnodo.nvagon.pesoMax'Img);
       
+      
+      --Recorrido vagones
+      i := 0;
+      pnodo := new node;
+      pnodo := ptren.pnodo;
+      while pnodo /= null loop
+         Put_Line("Vagon N-" & i'Img);
+         Put_Line("Consulta Vagon:" & pnodo.nvagon.Vcodigo & " con peso:" & pnodo.nvagon.pesoMax'Img);
+         pnodo:= pnodo.psig;
+         i := i + 1;
+      end loop;
+      Put_Line("");
+      
+      --Registramos el tren en los respectivos conjuntos
+      poner(cia.hash,t,ptren); --En el hash
+      davlT.poner(cia.avl,pesoAcu,ptren); --En el AVL   
+
       --Excepciones
    exception
       when colaP.mal_uso => raise locomotoras_agotadas;
@@ -213,7 +250,7 @@ package body dtrenes is
       ptren: p_tren;
       pnodo: pnode;
    begin
-    
+      
       ptren := new tren;
       
       --Consultar hash
@@ -226,7 +263,7 @@ package body dtrenes is
       pnodo := new node;
       pnodo := ptren.pnodo;
       while pnodo /= null loop
-         Put_Line("Vagon:" & pnodo.nvagon.Vcodigo & "con peso:" & pnodo.nvagon.pesoMax'Img);
+         Put_Line("Consulta Vagon:" & pnodo.nvagon.Vcodigo & " con peso:" & pnodo.nvagon.pesoMax'Img);
          pnodo:= pnodo.psig;
       end loop;
 
@@ -244,9 +281,7 @@ package body dtrenes is
       kAux: Integer;
       xAux: p_tren;
       pnodo:  pnode;
-      --vagonAux: pvagon;
-      --vagonAux2: pvagon;
-      
+
    begin
       --cogemos el tren de peso menor
       first(avl,itA);
@@ -259,37 +294,11 @@ package body dtrenes is
          pnodo := new node;
          pnodo := xAux.pnodo;
          while pnodo /= null loop
-            Put_Line("Vagon:" & pnodo.nvagon.Vcodigo & "con peso:" & pnodo.nvagon.pesoMax'Img);
+            Put_Line("Des mantelar: Vagon:" & pnodo.nvagon.Vcodigo & "con peso:" & pnodo.nvagon.pesoMax'Img);
             --Aparcar
             empila(vagones,pnodo.nvagon);
             pnodo:= pnodo.psig;
          end loop;
-         
-         --puntero apuntando al segudno vagon
-         --vagonAux := new vagon;
-         --vagonAux2 := new vagon;
-      
-         --vagonAux.all := xAux.all.vagonT;
-         
-         --mientras haya vagones imprimimos
-         --while(vagonAux /= null) loop
-            
-         --   if(vagonAux.pV /= null) then
-         --      vagonAux2 := vagonAux.pV;
-         --   end if;
-         
-            --imprimimos para debuggear luego
-         --   Put_Line(To_String(vagonAux.all.Vcodigo));
-         --   Put_Line(vagonAux.all.pesoMax'Img);
-         
-            --quitamos este vagón y lo aparcamos
-         --   aparcaVagon(cia,vagonAux.all.Vcodigo,vagonAux.all.pesoMax);
-         --   vagonAux.pV := null;
-         
-            --avanzamos puntero.
-         --   vagonAux := vagonAux2;
-         
-         --end loop;
          
          --aparcamos locomotor
          aparcaLocomotora(cia,xAux.all.locoT.lcodigo);

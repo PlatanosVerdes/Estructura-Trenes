@@ -1,5 +1,5 @@
 [MAPPING FILE]
-C:\Users\Juanmi\AppData\Local\Temp\GNAT-TEMP-000003.TMP
+C:\Users\jorge\AppData\Local\Temp\GNAT-TEMP-000003.TMP
 [TOOLCHAIN VERSION]
 ada
 GNAT 2019
@@ -13,10 +13,10 @@ c:\gnat\2019\bin\gcc.exe
 ada
 -gnatA
 [MAIN DEPENDENCY FILE]
-C:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\dtrenes.ali
+C:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\dtrenes.ali
 [DEPENDENCY FILES]
 [BINDING OPTIONS]
 gnatbind_prefix=
 [PROJECT FILES]
-C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr
-20210608175108
+C:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\default.gpr
+20210606070328

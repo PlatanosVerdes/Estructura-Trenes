@@ -1,22 +1,22 @@
 [GENERATED OBJECT FILE]
 b__main.o
 [PROJECT FILES]
-C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr
-20210608175108
+C:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\default.gpr
+20210606070328
 [BOUND OBJECT FILES]
-C:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\d_open_hash.o
-C:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\dcola.o
-C:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\dpila.o
-C:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\davl.o
-C:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\dtrenes.o
-C:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\main.o
+C:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\d_open_hash.o
+C:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\dcola.o
+C:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\dpila.o
+C:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\davl.o
+C:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\dtrenes.o
+C:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\main.o
 [GENERATED SOURCE FILES]
 b__main.ads
 b__main.adb
 b__main.ali
 [RESULTING OPTIONS]
--LC:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\
--LC:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\
+-LC:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\
+-LC:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\
 -LC:/gnat/2019/lib/gcc/x86_64-pc-mingw32/8.3.1/adalib/
 -static
 -static-libgcc

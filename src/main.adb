@@ -20,72 +20,62 @@ begin
    --insertamos locomotoras
 
    codigo := "L1234567";
-
    aparcaLocomotora(conjunto,codigo);
 
    codigo := "L2345678";
-
    aparcaLocomotora(conjunto,codigo);
 
    codigo := "L3456789";
-
    aparcaLocomotora(conjunto,codigo);
 
    --insertamos vagones
 
    codigo := "V1234567";
-
    aparcaVagon(conjunto,codigo,100);
 
    codigo := "V2345678";
-
    aparcaVagon(conjunto,codigo,125);
 
    codigo := "V3456789";
-
    aparcaVagon(conjunto,codigo,150);
 
    codigo := "V4567890";
-
    aparcaVagon(conjunto,codigo,175);
 
    codigo := "V7654321";
-
    aparcaVagon(conjunto,codigo,200);
 
    codigo := "V8765432";
-
    aparcaVagon(conjunto,codigo,225);
 
    codigo := "V9876543";
-
    aparcaVagon(conjunto,codigo,250);
 
-   --creamos trenenes
-
+   --creamos trenene
+   --Put_Line("-CRACION DE TRENES:");
    creaTren(conjunto,codigo,2);
-   --creaTren(conjunto,codigo,3);
-   --creaTren(conjunto,codigo,2);
+   creaTren(conjunto,codigo,3);
+   creaTren(conjunto,codigo,2);
 
    --consultamos ultimo tren
-
+   --Put_Line("-CONSULTAS:");
    consultaTren(conjunto,codigo);
 
    --listamos trenes
-
+   --Put_Line("-LISTAR:");
    listarTrenes(conjunto);
 
-   --eliminamos  tren
-
+   --eliminamos tren
+   --Put_Line("-ELIMINACION:");
    desmantelarTren(conjunto);
 
    --listamos trenes
-
+   --Put_Line("-LISTAR:");
    listarTrenes(conjunto);
 
    --eliminamos  todos los trenes y uno mas (excepcion management)
+   --desmantelarTren(conjunto);
 
-   desmantelarTren(conjunto);
    --desmantelarTren(conjunto);
    --desmantelarTren(conjunto);
 

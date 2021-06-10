@@ -278,14 +278,14 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   C:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\d_open_hash.o
-   --   C:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\dcola.o
-   --   C:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\dpila.o
-   --   C:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\davl.o
-   --   C:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\dtrenes.o
-   --   C:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\main.o
-   --   -LC:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\
-   --   -LC:\Users\Juanmi\Documents\GitHub\P3_Trenes\obj\
+   --   C:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\d_open_hash.o
+   --   C:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\dcola.o
+   --   C:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\dpila.o
+   --   C:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\davl.o
+   --   C:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\dtrenes.o
+   --   C:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\main.o
+   --   -LC:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\
+   --   -LC:\Users\jorge\Documents\ADAProjects\Practica3\P3_Trenes\obj\
    --   -LC:/gnat/2019/lib/gcc/x86_64-pc-mingw32/8.3.1/adalib/
    --   -static
    --   -lgnat
