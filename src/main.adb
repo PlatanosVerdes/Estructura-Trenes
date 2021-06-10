@@ -17,7 +17,10 @@ begin
 
    --(conjunto,codigo,20);
 
+   Put_Line("");
+
    --insertamos locomotoras
+   put_line("----CREAMOS LOCOMOTORAS----");
 
    codigo := "L1234567";
    aparcaLocomotora(conjunto,codigo);
@@ -27,9 +30,12 @@ begin
 
    codigo := "L3456789";
    aparcaLocomotora(conjunto,codigo);
+   Put_Line("---------------------------");
+
+   Put_Line("");
 
    --insertamos vagones
-
+   put_line("----CREAMOS VAGONES--------");
    codigo := "V1234567";
    aparcaVagon(conjunto,codigo,100);
    codigo := "V2345678";
@@ -44,33 +50,44 @@ begin
    aparcaVagon(conjunto,codigo,225);
    codigo := "V9876543";
    aparcaVagon(conjunto,codigo,250);
+   Put_Line("---------------------------");
+
+   Put_Line("");
 
    --creamos trenene
-   Put_Line("-CRACION DE TRENES:");
+   put_line("----CREAMOS tremes--------");
    creaTren(conjunto,codigo,2);
    creaTren(conjunto,codigo,3);
    creaTren(conjunto,codigo,2);
+   Put_Line("--------------------------");
+
    Put_Line("");
 
    --consultamos ultimo tren
-   Put_Line("-CONSULTAS:");
+   put_line("----CONSULTA--------------");
    consultaTren(conjunto,codigo);
+   Put_Line("--------------------------");
+
    Put_Line("");
 
    --listamos trenes
-   Put_Line("-LISTAR:");
+   put_line("----LISTAMOS--------------");
    listarTrenes(conjunto);
+   Put_Line("--------------------------");
+
    Put_Line("");
 
    --eliminamos tren
-   Put_Line("-ELIMINACION:");
+   put_line("----ELIMINAMOS UN TREN----");
    desmantelarTren(conjunto);
+   Put_Line("--------------------------");
+
    Put_Line("");
 
    --listamos trenes
-   Put_Line("-LISTAR:");
+   put_line("----LISTAMOS--------------");
    listarTrenes(conjunto);
-   Put_Line("");
+   Put_Line("--------------------------");
 
    --eliminamos  todos los trenes y uno mas (excepcion management)
    --desmantelarTren(conjunto);

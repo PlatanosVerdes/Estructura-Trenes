@@ -57,7 +57,7 @@ package body dtrenes is
       --creamos nuevo vagon
       vagonAux.Vcodigo := k;
       vagonAux.pesoMax := pmax;
-      Put_Line( "Vagonparcado: " & vagonAux.Vcodigo & " con peso:" & vagonAux.pesoMax'Img);
+      Put_Line( "Vagon aparcado: " & vagonAux.Vcodigo & " con peso:" & vagonAux.pesoMax'Img);
       
       --metemos nuevo vagon en el parking
       empila(vagones,vagonAux);
@@ -90,12 +90,12 @@ package body dtrenes is
          code := xAux.locoT.lcodigo;
 
          --codigo locomotora
-         Put_Line("Codigo locomotora:" & code);
+         Put_Line("Codigo locomotora: " & code);
          
          code(1):= 'T';
          
          --codigo tren y peso
-         Put_Line("Codigo Tren :" & code & " con peso: " & kAux'Img);
+         Put_Line("Codigo Tren: " & code & " con peso:" & kAux'Img);
 
          --Imprimir vagones
          --Recorrido vagones
@@ -105,7 +105,7 @@ package body dtrenes is
             Put_Line("Vagon:" & pnodo.nvagon.Vcodigo & "con peso:" & pnodo.nvagon.pesoMax'Img);
             pnodo:= pnodo.psig;
          end loop;
-
+         Put_Line(" ");
          next(avl,it);
       end loop;
       
@@ -213,7 +213,7 @@ package body dtrenes is
       pnodo := ptren.pnodo;
       while pnodo /= null loop
          Put_Line("Vagon" & i'Img);
-         Put_Line("Consulta Vagon:" & pnodo.nvagon.Vcodigo & " con peso:" & pnodo.nvagon.pesoMax'Img);
+         Put_Line("Consulta Vagon: " & pnodo.nvagon.Vcodigo & " con peso:" & pnodo.nvagon.pesoMax'Img);
          pnodo:= pnodo.psig;
          i := i + 1;
       end loop;
@@ -247,14 +247,14 @@ package body dtrenes is
       --Consultar hash
       consultar(cia.hash,t,ptren);
       
-      Put_Line("Codigo del tren:" & t);
-      Put_Line("Codigo locomotora:" & ptren.locoT.lcodigo);
+      Put_Line("Codigo del tren: " & t);
+      Put_Line("Codigo locomotora: " & ptren.locoT.lcodigo);
 
       --Recorrido vagones
       pnodo := new node;
       pnodo := ptren.pnodo;
       while pnodo /= null loop
-         Put_Line("Consulta Vagon:" & pnodo.nvagon.Vcodigo & " con peso:" & pnodo.nvagon.pesoMax'Img);
+         Put_Line("Consulta Vagon: " & pnodo.nvagon.Vcodigo & " con peso:" & pnodo.nvagon.pesoMax'Img);
          pnodo:= pnodo.psig;
       end loop;
 
@@ -285,7 +285,7 @@ package body dtrenes is
          pnodo := new node;
          pnodo := xAux.pnodo;
          while pnodo /= null loop
-            Put_Line("Vagon aparcado:" & pnodo.nvagon.Vcodigo & "con peso:" & pnodo.nvagon.pesoMax'Img);
+            Put_Line("Vagon aparcado:" & pnodo.nvagon.Vcodigo & " con peso:" & pnodo.nvagon.pesoMax'Img);
             --Aparcar
             empila(vagones,pnodo.nvagon);
             pnodo:= pnodo.psig;

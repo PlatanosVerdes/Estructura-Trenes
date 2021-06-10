@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
 <Locations >
-  <Project>
-    <vfs_file>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr</vfs_file>
-    <file_marker column=" 6" line=" 68" >
+  <Project >
+    <file_marker column=" 30" line=" 82" >
       <vfs_project>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr</vfs_project>
       <vfs_file>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\src\main.adb</vfs_file>
     </file_marker>
-    <file_marker column=" 44" line=" 183" >
+    <file_marker column=" 34" line=" 183" >
       <vfs_project>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr</vfs_project>
       <vfs_file>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\src\dtrenes.adb</vfs_file>
     </file_marker>
@@ -18,9 +17,49 @@
       <vfs_project>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr</vfs_project>
       <vfs_file>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\src\d_open_hash.adb</vfs_file>
     </file_marker>
-    <file_marker column=" 23" line=" 62" >
+    <file_marker column=" 21" line=" 62" >
       <vfs_project>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr</vfs_project>
       <vfs_file>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\src\dtrenes.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\src\dtrenes.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr</vfs_project>
+      <vfs_file>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\src\dtrenes.adb</vfs_file>
     </file_marker>
     <file_marker current="true" column=" 1" line=" 1" >
       <vfs_project>C:\Users\Juanmi\Documents\GitHub\P3_Trenes\default.gpr</vfs_project>
