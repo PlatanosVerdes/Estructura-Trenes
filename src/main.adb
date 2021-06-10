@@ -15,7 +15,7 @@ begin
 
    --creamos tren (exception management)
 
-   creaTren(conjunto,codigo,20);
+   --(conjunto,codigo,20);
 
    --insertamos locomotoras
 
@@ -64,8 +64,8 @@ begin
    --creamos trenenes
 
    creaTren(conjunto,codigo,2);
-   creaTren(conjunto,codigo,3);
-   creaTren(conjunto,codigo,2);
+   --creaTren(conjunto,codigo,3);
+   --creaTren(conjunto,codigo,2);
 
    --consultamos ultimo tren
 
@@ -86,13 +86,13 @@ begin
    --eliminamos  todos los trenes y uno mas (excepcion management)
 
    desmantelarTren(conjunto);
-   desmantelarTren(conjunto);
-   desmantelarTren(conjunto);
+   --desmantelarTren(conjunto);
+   --desmantelarTren(conjunto);
 
    --consultamos y listamos (exception management)
 
-   consultaTren(conjunto,codigo);
-   listarTrenes(conjunto);
+   --consultaTren(conjunto,codigo);
+   --listarTrenes(conjunto);
 
 
 end Main;

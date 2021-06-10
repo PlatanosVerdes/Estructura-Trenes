@@ -157,6 +157,7 @@ package body dtrenes is
       
       nvagones: Integer;
       pesoAcu: Integer;
+      
    begin
      
       --Cogemos una locomotora libre
@@ -164,6 +165,7 @@ package body dtrenes is
       
       --Montamos tren
       ptren := new tren;
+      
       ptren.all.locoT := loco;
       --Cambiamos el codigo
       t := loco.lcodigo;
@@ -174,7 +176,7 @@ package body dtrenes is
       nvagones := 0;
       pesoAcu := 0;
       while num_vagones > nvagones loop
-         
+         ptren.all.pnodo := new node;
          --Guardamos el elemento anterior
          pnodoAux := ptren.all.pnodo;
          --Ponemos el nuevo
