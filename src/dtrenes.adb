@@ -1,5 +1,5 @@
 package body dtrenes is
-   
+   --HASH
    --hash function
    function hashF (k : in tcodigo; b : in Integer) return Natural is
       s, p: natural;
@@ -11,6 +11,24 @@ package body dtrenes is
       end loop;
       return s;
    end hashF;
+   --Hash Igual
+   function igual(k1,k2 : in tcodigo) return boolean is
+   begin
+      return k1=k2;
+   end igual;
+   
+   --AVL
+   --Mayor
+   function mayor(k1, k2 : in Integer) return boolean is
+   begin
+      return k1>k2;
+   end mayor;
+   
+   --Menor
+   function menor(k1,k2 : in Integer) return boolean is
+   begin
+      return k1<k2;
+   end menor;
 
    --preparamos estructuras
    procedure vacio(cia: out cTrenes) is
@@ -132,11 +150,11 @@ package body dtrenes is
       vagones: pila renames cia.pkVagon; 
       
       ptren: p_tren;
-      
+      --Lista
       pnodoNew: pnode;
       pnodoAux: pnode;
       
-      pnodo: pnode;
+      pnodo: pnode; --Para recorrido vagones imprimir
       
       loco: locomotora;
       
@@ -304,28 +322,7 @@ package body dtrenes is
       end if;
       
       exception
-      when davlT.no_existe => raise tren_no_existe;
-     
+      when davlT.no_existe => raise tren_no_existe;  
    end desmantelarTren;
-   
-   
-   --Mayor
-   function mayor(k1, k2 : in Integer) return boolean is
-   begin
-      return k1>k2;
-   end mayor;
-   
-  --Menor
-  function menor(k1,k2 : in Integer) return boolean is
-   begin
-      return k1<k2;
-   end menor;
-   
-   --Igual
-   function igual(k1,k2 : in tcodigo) return boolean is
-   begin
-      return k1=k2;
-   end igual;
-
 
 end dtrenes;
