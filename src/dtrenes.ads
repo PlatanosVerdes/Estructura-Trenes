@@ -8,7 +8,7 @@ generic
    
 package dtrenes is
    
-   --elemento principal del paquete
+   --Elemento principal del paquete
    type cTrenes is limited private;
    
    subtype tcodigo is String(1..8);
@@ -33,22 +33,20 @@ package dtrenes is
 
    
 private
-      
-   --type numeroTrenes is new positive;
+   --Fuciones
+   -- Funciones AVL
    function mayor (k1, k2: in Integer) return boolean;
-   function hashf (k: in tcodigo ; b: in Integer) return natural;
    function menor (k1, k2: in Integer) return boolean; 
    function igual (k1, k2: in tcodigo) return boolean;
- --Menor
    
+   -- Funciones Hash
+   function hashf (k: in tcodigo ; b: in Integer) return natural;
+   
+   -- Tipos de "Datos"
    type vagon;
-   
-   --type pvagon is access vagon;
-
    type vagon is record
       Vcodigo:  tcodigo;
       pesoMax:  Integer;
-      --pV: pvagon;
    end record;
    
    type locomotora is record
@@ -62,8 +60,7 @@ private
       nvagon: vagon;
       psig: pnode;
    end record;
-
-      
+   
    --parking de locomotoras
    package colaP is new dcola(locomotora);
    use colaP;
@@ -74,10 +71,9 @@ private
 
    type tren is record
       locoT: locomotora;
-      --vagonT:        vagon;
       pnodo: pnode;
    end record;
-
+   
    type p_tren is access tren;
    
    --hash para buscar por código
