@@ -5,7 +5,7 @@ with d_open_hash;
 with davl;
 
 --PRACTICA 3 - Trenes
---Marc Torres Torres, Jorge Gonzalwz Pascual
+--Marc Torres Torres, Jorge Gonzalez Pascual
 
 generic
    
