@@ -4,6 +4,9 @@ with dpila;
 with d_open_hash;
 with davl;
 
+--PRACTICA 3 - Trenes
+--Marc Torres Torres, Jorge Gonzalwz Pascual
+
 generic
    
 package dtrenes is
@@ -29,8 +32,6 @@ package dtrenes is
    procedure creaTren(cia: in out cTrenes; t: out tcodigo; num_vagones:in Integer);
    procedure consultaTren(cia: in cTrenes; t: in tcodigo); 
    procedure desmantelarTren(cia: in out cTrenes); 
-   
-
    
 private
    --Fuciones

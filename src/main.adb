@@ -1,6 +1,8 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with dtrenes;
 
+--PRACTICA 3 - Trenes
+--Marc Torres Torres, Jorge Gonzalwz Pascual
 procedure Main is
 
    package tren is new dtrenes;
@@ -14,27 +16,22 @@ begin
    vacio(conjunto);
 
    --creamos tren (exception management)
-
    --(conjunto,codigo,20);
 
    Put_Line("");
 
-   --insertamos locomotoras
+   --Insertamos locomotoras
    put_line("----CREAMOS LOCOMOTORAS----");
-
    codigo := "L1234567";
    aparcaLocomotora(conjunto,codigo);
-
    codigo := "L2345678";
    aparcaLocomotora(conjunto,codigo);
-
    codigo := "L3456789";
    aparcaLocomotora(conjunto,codigo);
    Put_Line("---------------------------");
-
    Put_Line("");
 
-   --insertamos vagones
+   --Insertamos vagones
    put_line("----CREAMOS VAGONES--------");
    codigo := "V1234567";
    aparcaVagon(conjunto,codigo,100);
@@ -51,23 +48,20 @@ begin
    codigo := "V9876543";
    aparcaVagon(conjunto,codigo,250);
    Put_Line("---------------------------");
-
    Put_Line("");
 
    --creamos trenene
-   put_line("----CREAMOS tremes--------");
+   put_line("----CREAMOS TRENES--------");
    creaTren(conjunto,codigo,2);
    creaTren(conjunto,codigo,3);
    creaTren(conjunto,codigo,2);
    Put_Line("--------------------------");
-
    Put_Line("");
 
    --consultamos ultimo tren
    put_line("----CONSULTA--------------");
    consultaTren(conjunto,codigo);
    Put_Line("--------------------------");
-
    Put_Line("");
 
    --listamos trenes
@@ -81,7 +75,6 @@ begin
    put_line("----ELIMINAMOS UN TREN----");
    desmantelarTren(conjunto);
    Put_Line("--------------------------");
-
    Put_Line("");
 
    --listamos trenes
@@ -89,6 +82,7 @@ begin
    listarTrenes(conjunto);
    Put_Line("--------------------------");
 
+   --ERRORES:
    --eliminamos  todos los trenes y uno mas (excepcion management)
    --desmantelarTren(conjunto);
 
@@ -99,7 +93,6 @@ begin
 
    --consultaTren(conjunto,codigo);
    --listarTrenes(conjunto);
-
 
 end Main;
 
