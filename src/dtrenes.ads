@@ -38,10 +38,11 @@ private
    -- Funciones AVL
    function mayor (k1, k2: in Integer) return boolean;
    function menor (k1, k2: in Integer) return boolean; 
-   function igual (k1, k2: in tcodigo) return boolean;
    
    -- Funciones Hash
    function hashf (k: in tcodigo ; b: in Integer) return natural;
+   function igual (k1, k2: in tcodigo) return boolean;
+
    
    -- Tipos de "Datos"
    type vagon;
